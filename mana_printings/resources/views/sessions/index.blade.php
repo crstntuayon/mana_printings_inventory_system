@@ -1,0 +1,54 @@
+@extends('layouts.app')
+@section('title', 'Printing Sessions')
+
+
+@section('content')
+<div class="container">
+    <h1>Printing Sessions</h1>
+    <a href="{{ route('sessions.create') }}" class="btn btn-primary mb-3">Add New Session</a>
+
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Printer</th>
+                <th>Printed At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($sessions as $session)
+                <tr>
+                    <td>{{ $session->customer_name }}</td>
+                    <td>{{ $session->job_description }}</td>
+                    <td>{{ $session->quantity }}</td>
+                    <td>{{ $session->printer_used }}</td>
+                    <td>{{ $session->printed_at }}</td>
+                    <td>
+                        <a href="{{ route('sessions.edit', $session) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <form action="{{ route('sessions.destroy', $session) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+@endsection
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add any JavaScript needed for the page here
+    }); 
+</script>
+@endsection
+
