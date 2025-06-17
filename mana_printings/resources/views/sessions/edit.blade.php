@@ -22,7 +22,7 @@
             <input type="number" name="quantity" class="form-control" value="{{ old('quantity', $session->quantity ?? '') }}">
         </div>
         <div class="mb-3">
-            <label>Printer Used</label>
+            <label>Payment</label>
             <input type="text" name="printer_used" class="form-control" value="{{ old('printer_used', $session->printer_used ?? '') }}">
         </div>
         <div class="mb-3">

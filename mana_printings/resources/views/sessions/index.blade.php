@@ -35,7 +35,7 @@
                 <th>Customer</th>
                 <th>Description</th>
                 <th>Quantity</th>
-                <th>Printer</th>
+                <th>Payment</th>
                 <th>Printed At</th>
                 <th>Actions</th>
             </tr>
