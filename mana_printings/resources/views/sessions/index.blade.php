@@ -8,18 +8,26 @@
     <a href="{{ route('sessions.create') }}" class="btn btn-primary mb-3">Add New Session</a>
 
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-
-         <script>
-        setTimeout(function() {
-            const alert = document.getElementById('logout-alert');
-            if (alert) {
-                alert.style.opacity = 0;
-                setTimeout(() => alert.remove(), 500); // remove after fade
-            }
-        }, 3000); // hide after 3 seconds
-    </script>
+        <div class="alert alert-success" id="success-message">
+            {{ session('success') }}
+        </div>
     @endif
+   
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const alertBox = document.getElementById('success-message');
+        if (alertBox) {
+            setTimeout(() => {
+                alertBox.style.transition = 'opacity 0.5s ease';
+                alertBox.style.opacity = '0';
+                setTimeout(() => alertBox.remove(), 500); // remove from DOM after fade
+            }, 3000); // disappears after 3 seconds
+        }
+    });
+</script>
+
+   
 
     <table class="table table-bordered">
         <thead>
@@ -54,6 +62,7 @@
                                 }
                             }
                         </script>
+                        
                     </td>
                 </tr>
             @endforeach

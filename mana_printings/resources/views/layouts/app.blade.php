@@ -7,7 +7,7 @@
 <body>
     <nav class="navbar navbar-dark bg-dark mb-4">
         <div class="container">
-            <a href="{{ url('/') }}" class="navbar-brand">MANA Printing Inventory</a>
+            <a href="{{ url('https://www.facebook.com/cresttuayon') }}" class="navbar-brand">MANA Printing Inventory</a>
         </div>
     </nav>
     @yield('content')

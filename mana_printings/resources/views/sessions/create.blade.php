@@ -14,7 +14,7 @@
             <input type="text" name="customer_name" class="form-control" value="{{ old('customer_name', $session->customer_name ?? '') }}">
         </div>
         <div class="mb-3">
-            <label>Job Description</label>
+            <label>Description</label>
             <textarea name="job_description" class="form-control">{{ old('job_description', $session->job_description ?? '') }}</textarea>
         </div>
         <div class="mb-3">
