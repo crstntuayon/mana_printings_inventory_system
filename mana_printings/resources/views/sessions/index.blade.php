@@ -9,6 +9,16 @@
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
+
+         <script>
+        setTimeout(function() {
+            const alert = document.getElementById('logout-alert');
+            if (alert) {
+                alert.style.opacity = 0;
+                setTimeout(() => alert.remove(), 500); // remove after fade
+            }
+        }, 3000); // hide after 3 seconds
+    </script>
     @endif
 
     <table class="table table-bordered">
@@ -32,11 +42,18 @@
                     <td>{{ $session->printed_at }}</td>
                     <td>
                         <a href="{{ route('sessions.edit', $session) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="{{ route('sessions.destroy', $session) }}" method="POST" style="display:inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                        </form>
+                        <form action="{{ route('sessions.destroy', $session) }}" method="POST" style="display:inline-block;" onsubmit="return confirmDelete(event)">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+</form>
+                        <script>
+                            function confirmDelete(event) {
+                                if (!confirm('Are you sure you want to delete this session?')) {
+                                    event.preventDefault();
+                                }
+                            }
+                        </script>
                     </td>
                 </tr>
             @endforeach

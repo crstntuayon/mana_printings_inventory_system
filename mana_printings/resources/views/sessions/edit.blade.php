@@ -31,6 +31,7 @@
         </div>
 
         <button type="submit" class="btn btn-success">{{ isset($session) ? 'Update' : 'Save' }}</button>
+        <a href="{{ route('sessions.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 @endsection
