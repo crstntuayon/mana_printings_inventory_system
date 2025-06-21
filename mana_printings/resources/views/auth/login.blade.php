@@ -662,9 +662,9 @@
                     <div class="profile-header">
                         <img src="" alt="Troilan Tuayon" class="profile-avatar">
                         <div class="profile-info">
-                            <h5>Trilan Tuayon</h5>
+                            <h5>Troilan Tuayon</h5>
                             <div class="role">Printing Manager</div>
-                            <a href="" target="_blank" class="facebook-link">
+                            <a href="https://www.facebook.com/sirtroytuayon" target="_blank" class="facebook-link">
                                 <i class="fab fa-facebook-f"></i>
                                 View Facebook Profile
                             </a>
