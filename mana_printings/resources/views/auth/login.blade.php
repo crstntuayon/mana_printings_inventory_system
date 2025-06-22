@@ -614,61 +614,11 @@
                                 @error('password')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                </div>
-                <div class="mb-3">
-                  <label for="registerPasswordConfirm" class="form-label">Confirm Password</label>
-                    <input type="text" class="form-control" id="password_confirmation" name="password_confirmation"  required>
-                                    @error('password_confirmation')
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                </div>
-                <button type="submit" class="btn btn-success w-100">Register</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
 
-    </div>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-<div class="social-profiles">
-                <h3 class="profiles-title">
-                    <i class="fab fa-facebook me-2"></i>
-                    Meet Our Team
-                </h3>
-                
-                
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <img src="https://scontent.fceb1-3.fna.fbcdn.net/v/t39.30808-6/505629446_1022580173355984_1710824843001071140_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEU_uYLRAYzVn-Y-aFJoeWlDA1ro3d-oTEMDWujd36hMSe3RM9IL7Tjel4FuRyfX18J01uCRZ2j9LHlaBgNnUsB&_nc_ohc=W1E7gJ7-D-AQ7kNvwH4P_AS&_nc_oc=AdngWjpuDcngk9gSOo4YYeVQNNo5SQ3KI3uJjVDi0QVI8kEhKVebSx0XscjtoEuoQ1g&_nc_zt=23&_nc_ht=scontent.fceb1-3.fna&_nc_gid=TCNTwwaPBBieBHxl-8W3Vw&oh=00_AfO06RoQvrgHCF3p9NXAQtUU-JZ33cYGs7kJtvbaGLZJUg&oe=685849D7" alt="Cres Tuayon" class="profile-avatar">
-                        <div class="profile-info">
-                            <h5>Crestian Tuayon</h5>
-                            <div class="role">Lead Developer</div>
-                            <a href="https://www.facebook.com/cresttuayon" target="_blank" class="facebook-link">
-                                <i class="fab fa-facebook-f"></i>
-                                View Facebook Profile
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-    
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <img src="" alt="Troilan Tuayon" class="profile-avatar">
-                        <div class="profile-info">
-                            <h5>Troilan Tuayon</h5>
-                            <div class="role">Printing Manager</div>
-                            <a href="https://www.facebook.com/sirtroytuayon" target="_blank" class="facebook-link">
-                                <i class="fab fa-facebook-f"></i>
-                                View Facebook Profile
-                            </a>
-                        </div>
+                       <a href="{{ route('auth.register') }}">Register</a>
                     </div>
                 </div>
             </div>
