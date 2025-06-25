@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -19,22 +20,21 @@ class AuthController extends Controller
     }
 
     public function login(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+{
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
 
-        $loginAuth = User::where('email', '=', $request->email)
-            ->first();
+    $user = User::where('email', $request->email)->first();
 
-        if ($loginAuth) {
-            Session::put('loginId', $loginAuth->id);
-            return redirect()->route('sessions.index')->with('success', 'Login successfully');
-        } else {
-            return back()->with('error', 'Invalid email or password');
-        }
+    if ($user && Hash::check($request->password, $user->password)) {
+        Session::put('loginId', $user->id);
+        return redirect()->route('sessions.index')->with('success', 'Login successfully');
+    } else {
+        return back()->with('error', 'Invalid email or password');
     }
+}
 
     // Register
 
